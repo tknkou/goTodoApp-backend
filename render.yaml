@@ -12,7 +12,7 @@ services:
       - key: DB_PASSWORD
         value: J8t7e5Mu9Czc0duhXhIuv59h6pQjLtgq
       - key: DB_HOST
-        value: go-todo-db
+        value: dpg-d21gfb95pdvs73ft4250-a.pg.render.com
       - key: DB_PORT
         value: "5432"
       - key: DB_NAME
