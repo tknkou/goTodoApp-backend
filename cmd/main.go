@@ -1,6 +1,7 @@
 package main
 
 import (
+    "os"
     "time"
     "goTodoApp/di"
     "goTodoApp/infrastructures/database"
@@ -36,6 +37,11 @@ func main() {
 	routes.TodoRoutes(router, todoController, authMiddleware)
     routes.UserRoutes(router, userController)
 
-    //サーバーの起動
-    router.Run(":8080")
+    // サーバーの起動ポートを環境変数から取得（Render用）
+    port := os.Getenv("PORT")
+    if port == "" {
+        port = "8080" // ローカル用のデフォルトポート
+    }
+
+    router.Run(":" + port)
 }
