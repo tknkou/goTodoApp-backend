@@ -39,6 +39,14 @@ func main() {
 	routes.TodoRoutes(router, todoController, authMiddleware)
     routes.UserRoutes(router, userController)
 
+    // React の index.html を使えるようにする
+    router.LoadHTMLFiles("./dist/index.html")
+
+    // 不明なルートを全て index.html にリダイレクト
+    router.NoRoute(func(c *gin.Context) {
+    c.HTML(200, "index.html", nil)
+})
+
     // サーバーの起動ポートを環境変数から取得（Render用）
     port := os.Getenv("PORT")
     if port == "" {
