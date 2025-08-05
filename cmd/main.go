@@ -50,9 +50,5 @@ func main() {
 
     // サーバーの起動ポートを環境変数から取得（Render用）
     port := os.Getenv("PORT")
-    if port == "" {
-        port = "8080" // ローカル用のデフォルトポート
-    }
-
     router.Run(":" + port)
 }
