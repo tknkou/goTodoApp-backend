@@ -50,5 +50,9 @@ func main() {
 
     // サーバーの起動ポートを環境変数から取得（Render用）
     port := os.Getenv("PORT")
+    if port == "" {
+    log.Fatal("PORT environment variable is not set")
+}
+log.Printf("Listening on port %s\n", port)
     router.Run(":" + port)
 }
