@@ -39,14 +39,14 @@ func main() {
 	routes.TodoRoutes(router, todoController, authMiddleware)
     routes.UserRoutes(router, userController)
 
-    // React の index.html を使えるようにする
-    router.LoadHTMLFiles("./dist/index.html")
+    // // React の index.html を使えるようにする
+    // router.LoadHTMLFiles("./dist/index.html")
 
-    router.StaticFile("/vite.svg", "./dist/vite.svg")
+    // router.StaticFile("/vite.svg", "./dist/vite.svg")
 
-    router.NoRoute(func(c *gin.Context) {
-    c.HTML(200, "index.html", nil)
-    })
+    // router.NoRoute(func(c *gin.Context) {
+    // c.HTML(200, "index.html", nil)
+    // })
 
     // サーバーの起動ポートを環境変数から取得（Render用）
     port := os.Getenv("PORT")
